@@ -220,15 +220,224 @@ Then run the uninstall script and confirm cleanup worked.
 
 ## Part 2: Package the Win32 app (15 minutes)
 
-### Step 1: Run the Win32 Content Prep Tool
+### Goal
 
-Run `IntuneWinAppUtil.exe` and provide:
+Create the `.intunewin` package from the files in your `Source` folder so it can be uploaded into Intune.
 
-- **Source folder**: `C:\Lab\AirlockStyleAgent\Source`
-- **Setup file**: `install-agent.ps1` is not a binary, so create a launcher command by packaging the folder and using PowerShell as the Intune install command later
-- **Output folder**: `C:\Lab\AirlockStyleAgent\Output`
+### Before you begin
 
-> The tool packages the source folder into a single encrypted `.intunewin` file for Intune upload.
+Make sure these items already exist:
+
+- `C:\Lab\AirlockStyleAgent\Source`
+- `C:\Lab\AirlockStyleAgent\Output`
+
+Inside `Source`, you should have:
+
+- `install-agent.ps1`
+- `uninstall-agent.ps1`
+- `agent.bin`
+
+Also make sure you have the **Microsoft Win32 Content Prep Tool** downloaded and extracted, so you can run `IntuneWinAppUtil.exe`.
+
+---
+
+### Actual student steps
+
+#### 1. Open File Explorer
+
+Go to the folder where `IntuneWinAppUtil.exe` is stored.
+
+Example:
+
+```text
+C:\Lab\Tools\IntuneWinAppUtil
+```
+
+#### 2. Open Command Prompt in that folder
+
+Do one of these:
+
+- Click the address bar in File Explorer, type `cmd`, and press **Enter**
+- Or right-click in the folder and choose **Open in Terminal** / **Open PowerShell window here**
+
+A command window should open in the same folder as `IntuneWinAppUtil.exe`.
+
+#### 3. Run the tool
+
+Type:
+
+```cmd
+IntuneWinAppUtil.exe
+```
+
+Press **Enter**.
+
+#### 4. Enter the source folder when prompted
+
+When the tool asks for the **source folder**, type:
+
+```text
+C:\Lab\AirlockStyleAgent\Source
+```
+
+Press **Enter**.
+
+This tells the tool where the install files are located.
+
+#### 5. Enter the setup file
+
+When the tool asks for the **setup file**, type:
+
+```text
+install-agent.ps1
+```
+
+Press **Enter**.
+
+> Even though this is a PowerShell script and not an `.exe`, that is okay.  
+> The tool only needs to know which file is the main setup file inside the source folder.
+
+Later, in Intune, you will use **PowerShell** as the install command:
+
+```powershell
+powershell.exe -ExecutionPolicy Bypass -File .\install-agent.ps1
+```
+
+#### 6. Enter the output folder
+
+When asked for the **output folder**, type:
+
+```text
+C:\Lab\AirlockStyleAgent\Output
+```
+
+Press **Enter**.
+
+This is where the finished `.intunewin` package will be created.
+
+#### 7. Continue with the default packaging options
+
+The tool may ask whether to specify a catalog folder or continue with default packaging options, depending on the version.
+
+For this lab, use the default options unless your instructor says otherwise.
+
+#### 8. Wait for packaging to complete
+
+The tool will now package the files.
+
+Watch for a success message showing that packaging completed successfully.
+
+---
+
+### What students should see
+
+After the tool finishes:
+
+- A new file ending in `.intunewin` should appear in:
+
+```text
+C:\Lab\AirlockStyleAgent\Output
+```
+
+- The file name will usually be based on the setup file, such as:
+
+```text
+install-agent.intunewin
+```
+
+---
+
+### What students should verify
+
+Confirm the following:
+
+1. The output folder is not empty.
+2. A `.intunewin` file exists.
+3. The timestamp matches the current lab time.
+4. No error messages appeared during packaging.
+
+---
+
+### Common mistakes to warn students about
+
+#### Wrong source folder
+
+Students sometimes point the tool to:
+
+```text
+C:\Lab\AirlockStyleAgent
+```
+
+instead of:
+
+```text
+C:\Lab\AirlockStyleAgent\Source
+```
+
+That can cause packaging problems or include the wrong files.
+
+#### Typing the full path for the setup file
+
+When prompted for the setup file, students should enter:
+
+```text
+install-agent.ps1
+```
+
+not the full path, unless the tool specifically requires it.
+
+#### Missing files in Source
+
+If `agent.bin` or one of the scripts is missing, the package may build, but the app will fail later during install.
+
+#### Running the tool from the wrong location
+
+If `IntuneWinAppUtil.exe` is not being run from its folder, students may get a **file not found** error.
+
+---
+
+### Optional instructor demo command
+
+If you want a clean example to show students, run:
+
+```cmd
+IntuneWinAppUtil.exe -c C:\Lab\AirlockStyleAgent\Source -s install-agent.ps1 -o C:\Lab\AirlockStyleAgent\Output
+```
+
+Where:
+
+- `-c` = source folder
+- `-s` = setup file
+- `-o` = output folder
+
+This does the same thing without the interactive prompts.
+
+---
+
+### Suggested replacement text for the lab
+
+#### Step 1: Run the Win32 Content Prep Tool
+
+1. Open **Command Prompt** or **Windows Terminal** in the folder that contains `IntuneWinAppUtil.exe`.
+2. Run:
+
+   ```cmd
+   IntuneWinAppUtil.exe
+   ```
+
+3. When prompted, enter the following:
+   - **Source folder**: `C:\Lab\AirlockStyleAgent\Source`
+   - **Setup file**: `install-agent.ps1`
+   - **Output folder**: `C:\Lab\AirlockStyleAgent\Output`
+
+4. Wait for the tool to complete packaging.
+5. Confirm that a new `.intunewin` file is created in the `Output` folder.
+
+You can also run the tool in one line:
+
+```cmd
+IntuneWinAppUtil.exe -c C:\Lab\AirlockStyleAgent\Source -s install-agent.ps1 -o C:\Lab\AirlockStyleAgent\Output
+```
 
 ### Step 2: Confirm package creation
 
