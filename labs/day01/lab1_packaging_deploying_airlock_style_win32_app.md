@@ -245,7 +245,7 @@ Also make sure you have the **Microsoft Win32 Content Prep Tool** downloaded and
 
 #### 1. Open File Explorer
 
-Go to the folder where `IntuneWinAppUtil.exe` is stored.
+Go to the folder where `IntuneWinAppUtil.exe` is stored. Download from <https://github.com/microsoft/Microsoft-Win32-Content-Prep-Tool/blob/master/IntuneWinAppUtil.exe>.
 
 Example:
 
