@@ -255,6 +255,7 @@ Example rows:
 ## Expected results
 
 Students should leave the lab able to:
+
 - locate the right Intune client logs quickly
 - find the relevant execution block
 - interpret common status patterns

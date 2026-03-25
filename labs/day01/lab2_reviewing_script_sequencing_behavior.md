@@ -139,13 +139,13 @@ Use:
 - **Install command**:
 
   ```powershell
-  powershell.exe -ExecutionPolicy Bypass -File .\cleanup.ps1
+  "%WINDIR%\sysnative\windowspowershell\v1.0\powershell.exe" -ExecutionPolicy Bypass -File .\cleanup.ps1
   ```
 
 - **Uninstall command**:
 
   ```powershell
-  powershell.exe -ExecutionPolicy Bypass -File .\cleanup-uninstall.ps1
+  "%WINDIR%\sysnative\windowspowershell\v1.0\powershell.exe" -ExecutionPolicy Bypass -File .\cleanup-uninstall.ps1
   ```
 
 - **Install behavior**: `System`
@@ -207,13 +207,13 @@ Use:
 - **Install command**:
 
   ```powershell
-  powershell.exe -ExecutionPolicy Bypass -File .\install-main.ps1
+  "%WINDIR%\sysnative\windowspowershell\v1.0\powershell.exe" -ExecutionPolicy Bypass -File .\install-main.ps1
   ```
 
 - **Uninstall command**:
 
   ```powershell
-  powershell.exe -ExecutionPolicy Bypass -File .\uninstall-main.ps1
+  "%WINDIR%\sysnative\windowspowershell\v1.0\powershell.exe" -ExecutionPolicy Bypass -File .\uninstall-main.ps1
   ```
 
 - **Install behavior**: `System`

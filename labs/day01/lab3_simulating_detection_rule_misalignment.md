@@ -136,13 +136,13 @@ Use:
 - **Install command**:
 
   ```powershell
-  powershell.exe -ExecutionPolicy Bypass -File .\install.ps1
+  "%WINDIR%\sysnative\windowspowershell\v1.0\powershell.exe" -ExecutionPolicy Bypass -File .\install.ps1
   ```
 
 - **Uninstall command**:
 
   ```powershell
-  powershell.exe -ExecutionPolicy Bypass -File .\uninstall.ps1
+  "%WINDIR%\sysnative\windowspowershell\v1.0\powershell.exe" -ExecutionPolicy Bypass -File .\uninstall.ps1
   ```
 
 - **Install behavior**: `System`

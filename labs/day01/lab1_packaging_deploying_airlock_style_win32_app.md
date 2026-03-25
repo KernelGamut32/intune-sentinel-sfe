@@ -300,7 +300,7 @@ Press **Enter**.
 Later, in Intune, you will use **PowerShell** as the install command:
 
 ```powershell
-powershell.exe -ExecutionPolicy Bypass -File .\install-agent.ps1
+"%WINDIR%\sysnative\windowspowershell\v1.0\powershell.exe" -ExecutionPolicy Bypass -File .\install-agent.ps1
 ```
 
 #### 6. Enter the output folder
@@ -440,13 +440,13 @@ Use:
 - **Install command**
 
   ```powershell
-  powershell.exe -ExecutionPolicy Bypass -File .\install-agent.ps1
+  "%WINDIR%\sysnative\windowspowershell\v1.0\powershell.exe" -ExecutionPolicy Bypass -File .\install-agent.ps1
   ```
 
 - **Uninstall command**
 
   ```powershell
-  powershell.exe -ExecutionPolicy Bypass -File .\uninstall-agent.ps1
+  "%WINDIR%\sysnative\windowspowershell\v1.0\powershell.exe" -ExecutionPolicy Bypass -File .\uninstall-agent.ps1
   ```
 
 - **Install behavior**: `System`
