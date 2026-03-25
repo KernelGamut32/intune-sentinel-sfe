@@ -420,7 +420,7 @@ This does the same thing without the interactive prompts.
 
 In the Intune admin center:
 
-1. Go to **Apps > Windows > Add**.
+1. Go to **Apps > Windows > Create**.
 2. Select **Windows app (Win32)**.
 3. Upload the generated `.intunewin` file.
 
