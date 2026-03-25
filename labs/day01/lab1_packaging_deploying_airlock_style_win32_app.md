@@ -414,42 +414,6 @@ This does the same thing without the interactive prompts.
 
 ---
 
-### Suggested replacement text for the lab
-
-#### Step 1: Run the Win32 Content Prep Tool
-
-1. Open **Command Prompt** or **Windows Terminal** in the folder that contains `IntuneWinAppUtil.exe`.
-2. Run:
-
-   ```cmd
-   IntuneWinAppUtil.exe
-   ```
-
-3. When prompted, enter the following:
-   - **Source folder**: `C:\Lab\AirlockStyleAgent\Source`
-   - **Setup file**: `install-agent.ps1`
-   - **Output folder**: `C:\Lab\AirlockStyleAgent\Output`
-
-4. Wait for the tool to complete packaging.
-5. Confirm that a new `.intunewin` file is created in the `Output` folder.
-
-You can also run the tool in one line:
-
-```cmd
-IntuneWinAppUtil.exe -c C:\Lab\AirlockStyleAgent\Source -s install-agent.ps1 -o C:\Lab\AirlockStyleAgent\Output
-```
-
-### Step 2: Confirm package creation
-
-Verify that an `.intunewin` file exists in the output folder.
-
-Record:
-
-- file name
-- package creation time
-
----
-
 ## Part 3: Create the Win32 app in Intune (20 minutes)
 
 ### Step 1: Add the app
